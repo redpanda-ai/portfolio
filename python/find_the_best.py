@@ -63,9 +63,9 @@ for i in range(len(movies)):
 		best_movies[0] = (i,movies[i]["ranking"])
 		best_movies = sorted(best_movies, key=itemgetter(1))
 
-x = len(best_movies)
 
 #Display the results, with a simple loop
+x = len(best_movies)
 for j in range(x):
 	m = movies[best_movies[x-j-1][0]]
 	print str(j+1) + ". " + m["name"] + " (" + str(m["ranking"]) + ")"
