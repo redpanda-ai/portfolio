@@ -15,7 +15,7 @@ if len(sys.argv) != 2:
 #This is an unsorted list of movies.  Each movie is a dictionary with a:
 #	1.  "mmid" - Unique movie identifier
 #	2.  "name" - Name of the movie
-#	3.  "ranking" - from 0 (worst) to 10 (top_movies) rating for the movie
+#	3.  "ranking" - from 0 (worst) to 10 (best) rating for the movie
 
 movies = [
 	{"mmid" : 1, "name" : "Toy Story 3", "ranking" : 6.5},
