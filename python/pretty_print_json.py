@@ -27,6 +27,7 @@ def pretty_print(indent_count, key, value, add_comma):
 		suffix = ','
 	
 	base_type = type(value)
+	#This section identifies "base_types", handling each differently
 	#handle nulls
 	if base_type == base_types["NULL"]:
 		print prefix + fob + "null" + suffix
@@ -46,6 +47,7 @@ def pretty_print(indent_count, key, value, add_comma):
 		for item in value:
 			if item_count == max_count :
 				ac = 0
+			#since arrays contain base_types, use recursion
 			pretty_print(indent_count+1,'',item,ac)
 			item_count += 1
 		print prefix + ']' + suffix
@@ -59,6 +61,7 @@ def pretty_print(indent_count, key, value, add_comma):
 			v = value[k]
 			if item_count == max_count :
 				ac = 0
+			#since objects contain base_types, use recursion
 			pretty_print(indent_count+1,k,v,ac)
 			item_count += 1
 		print prefix + "}" + suffix
