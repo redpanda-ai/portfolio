@@ -11,6 +11,7 @@ from operator import itemgetter
 if len(sys.argv) != 2:
 	print "usage: python " + sys.argv[0] + " <number_of_results>"
 	sys.exit(0)
+number_of_results = int(sys.argv[1]) #set this to the number of results you want
 
 #This is an unsorted list of movies.  Each movie is a dictionary with a:
 #	1.  "mmid" - Unique movie identifier
@@ -40,19 +41,18 @@ movies = [
 ]	
 
 best_movies = []
-top_x = int(sys.argv[1]) #set this to the number of results you want
 for i in range(len(movies)):
 	#if the current list of best_movies movies is less than our requested
 	#number of results 
-	if len(best_movies) < top_x:
+	if len(best_movies) < number_of_results:
 		#just add the movie
 		best_movies.append((i,movies[i]["ranking"]))
 		#if we reach the last movie in the list
 		if i == len(movies) - 1:
 			#sort the best_movies movies
 			best_movies = sorted(best_movies, key=itemgetter(1))
-		#if we reach the correct "top_x" number of results 
-		elif len(best_movies) == top_x:
+		#if we reach the correct "number_of_results"  
+		elif len(best_movies) == number_of_results:
 			#sort the best_movies movie 
 			best_movies = sorted(best_movies, key=itemgetter(1))
 #At this point, we have a sorted list of "best_movies".  We now iterate through 
