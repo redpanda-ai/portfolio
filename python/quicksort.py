@@ -20,7 +20,7 @@ def quicksort(list):
 		return lesser + [pivot] + greater
 
 #Python is a dynamically typed language, allowing us to sort a list of integers
-# or strings with the same function
+# or strings with the same function.
 #An unsorted list of integers
 l = [5,3,4,1,89]
 print "Quicksorting a list of integers"
