@@ -5,7 +5,7 @@ import json, sys, string
 #	document into a more legible structure.  This solution scans a python
 #	object representing the document and produces a "pretty-print"-ed
 #	string based upon introspection/reflection of the object that
-#	identifies its base types. 
+#	identifies a hierarchy of base types. 
 
 #Our decoder understands these base types
 base_types = { 
