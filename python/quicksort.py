@@ -10,7 +10,7 @@ def quicksort(list):
 	if list == []:
 		return list
 	else:
-		#select a random pivot and remove it from the list
+		#select a random pivot value and remove it from the list
 		pivot = list.pop(randrange(len(list)))
 		#filter all items less than the pivot and quicksort them
 		lesser = quicksort([l for l in list if l < pivot])
