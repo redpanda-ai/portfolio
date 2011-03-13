@@ -39,33 +39,33 @@ movies = [
 	{"mmid" : 20, "name" : "Sleepless in Seattle", "ranking" : 1.0}
 ]	
 
-top_movies = []
+best_movies = []
 top_x = int(sys.argv[1]) #set this to the number of results you want
 for i in range(len(movies)):
-	#if the current list of top_movies movies is less than our requested
+	#if the current list of best_movies movies is less than our requested
 	#number of results 
-	if len(top_movies) < top_x:
+	if len(best_movies) < top_x:
 		#just add the movie
-		top_movies.append((i,movies[i]["ranking"]))
+		best_movies.append((i,movies[i]["ranking"]))
 		#if we reach the last movie in the list
 		if i == len(movies) - 1:
-			#sort the top_movies movies
-			top_movies = sorted(top_movies, key=itemgetter(1))
+			#sort the best_movies movies
+			best_movies = sorted(best_movies, key=itemgetter(1))
 		#if we reach the correct "top_x" number of results 
-		elif len(top_movies) == top_x:
-			#sort the top_movies movie 
-			top_movies = sorted(top_movies, key=itemgetter(1))
-#At this point, we have a sorted list of "top_movies".  We now iterate through 
+		elif len(best_movies) == top_x:
+			#sort the best_movies movie 
+			best_movies = sorted(best_movies, key=itemgetter(1))
+#At this point, we have a sorted list of "best_movies".  We now iterate through 
 #the remaining list of movies looking for any movie that has a better ranking 
 #than our lowest ranked "top_movie".  Whenever one is found, replace the 
-#old lowest ranked "top_movie" and re-sort the "top_movies"
-	elif movies[i]["ranking"] > top_movies[0][1] :
-		top_movies[0] = (i,movies[i]["ranking"])
-		top_movies = sorted(top_movies, key=itemgetter(1))
+#old lowest ranked "top_movie" and re-sort the "best_movies"
+	elif movies[i]["ranking"] > best_movies[0][1] :
+		best_movies[0] = (i,movies[i]["ranking"])
+		best_movies = sorted(best_movies, key=itemgetter(1))
 
-x = len(top_movies)
+x = len(best_movies)
 
 #Display the results, with a simple loop
 for j in range(x):
-	m = movies[top_movies[x-j-1][0]]
+	m = movies[best_movies[x-j-1][0]]
 	print str(j+1) + ". " + m["name"] + " (" + str(m["ranking"]) + ")"
