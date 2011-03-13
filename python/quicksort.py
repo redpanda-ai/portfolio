@@ -4,7 +4,7 @@ from random import randrange
 #Author: J. Andrew Key
 #Objective: Implement quicksort (aka "partition-exchange" sort) that makes 
 #on average, O(n log n) comparisons to sort n items.  This solution benefits
-#from "list comprehensions", which keep the syntax concise and easy to read.
+#from "list comprehensions", which keeps the syntax concise and easy to read.
 def quicksort(list):
 	# an empty list is already sorted, so just return it
 	if list == []:
