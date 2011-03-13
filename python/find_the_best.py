@@ -57,8 +57,8 @@ for i in range(len(movies)):
 			best_movies = sorted(best_movies, key=itemgetter(1))
 #At this point, we have a sorted list of "best_movies".  We now iterate through 
 #the remaining list of movies looking for any movie that has a better ranking 
-#than our lowest ranked "top_movie".  Whenever one is found, replace the 
-#old lowest ranked "top_movie" and re-sort the "best_movies"
+#than our lowest ranked "best_movie".  Whenever one is found, replace the 
+#old lowest ranked "best_movie" and re-sort the "best_movies"
 	elif movies[i]["ranking"] > best_movies[0][1] :
 		best_movies[0] = (i,movies[i]["ranking"])
 		best_movies = sorted(best_movies, key=itemgetter(1))
