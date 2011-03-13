@@ -42,8 +42,8 @@ movies = [
 
 best_movies = []
 for i in range(len(movies)):
-	#if the current list of best_movies movies is less than our requested
-	#number of results 
+	#if the length of the current list of "best_movies" is less than our 
+	#the specified "number_of_results"
 	if len(best_movies) < number_of_results:
 		#just add the movie
 		best_movies.append((i,movies[i]["ranking"]))
