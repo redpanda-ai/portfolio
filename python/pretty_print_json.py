@@ -28,17 +28,17 @@ def pretty_print(indent_count, key, value, add_comma):
 	
 	base_type = type(value)
 	#This section identifies "base_types", handling each differently
-	#handle nulls
+	#1. NULL
 	if base_type == base_types["NULL"]:
 		print prefix + fob + "null" + suffix
-	#handle integers, floats, true and false
+	#2. INTEGER, FLOAT, BOOL 
 	elif base_type in (base_types["INT"], base_types["FLOAT"], \
 		base_types["BOOL"]):
 		print prefix + fob + str(value).lower() + suffix
-	#handle strings 
+	#3. STRING
 	elif base_type == base_types["STRING"]:
 		print '{0}"{1}" : "{2}"{3}'.format(prefix,key,str(value),suffix)
-	#handle arrays 
+	#4. ARRAY
 	elif base_type == base_types["ARRAY"]: 
 		print prefix + fob + '['
 		item_count = 1
@@ -51,7 +51,7 @@ def pretty_print(indent_count, key, value, add_comma):
 			pretty_print(indent_count+1,'',item,ac)
 			item_count += 1
 		print prefix + ']' + suffix
-	#handle objects
+	#OBJECT
 	elif base_type == base_types["OBJECT"]:
 		print prefix + "{"
 		item_count = 1
