@@ -19,14 +19,16 @@ def quicksort(list):
 		#return the sorted results 
 		return lesser + [pivot] + greater
 
-#Python is a dynamically typed language, allowing us to sort a list of integers
-# or strings with the same function.
-#An unsorted list of integers
+#Python is a dynamically typed language, allowing us to easily sort a list of
+#integers or strings with the same function.
+
+#1.  Sorting an unsorted list of integers
 l = [5,3,4,1,89]
 print "Quicksorting a list of integers"
 print "\tunsorted -> " + str(l)
 print "\tsorted -> " + str(quicksort(l))
-#An unsorted list of strings
+
+#2.  Sorting an unsorted list of strings
 print "Quicksorting a list of strings"
 l = ["andy", "jimmy", "tom", "lucy", "skye", "jill"]
 print "\tunsorted -> " + str(l)
