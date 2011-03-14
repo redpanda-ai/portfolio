@@ -1,8 +1,7 @@
 #Author: J. Andrew Key
-#Objective: In many cases, it is useful to open multiple terminals to different
-#servers that are each nodes in a cluster with a single command.  This script
-#opens a color-coded array of terminals arranged at different places on the
-#user's screen, each making its own ssh connection.
+#Objective: In many cases, it is necessary to open numerous terminals to 
+#different servers.  This script simplifies that task using a color-coded
+#array of terminal windows arranged at different places on the your screen
 
 #An array of foreground colors
 fg=( red orange magenta cyan purple green yellow blue )
