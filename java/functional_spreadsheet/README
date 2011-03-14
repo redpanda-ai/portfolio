@@ -1,0 +1,6 @@
+Spreadsheet Calculator
+
+For your convenience, tests are included.  You may just run them using
+run.sh, or, if you want to use the real JUnit and have it installed, you
+would just un-comment the import directive at the beginning of
+TestSpreadSheet.java.
