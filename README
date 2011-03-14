@@ -1,16 +1,14 @@
 This portfolio is a collection of assorted works that demonstrate my ability 
 to solve interesting problems in a variety of programming languages.
 
-Currently, I have only uploaded some Python.  I will try to limit my entries
-to the best 5 or 6 in each language.  Soon you will also see examples of:
-1.  Java
-2.  SQL
-3.  Cassandra
-4.  ElasticSearch
-5.  Ruby
-6.  Javascript/AJAX
-7.  Erlang/OTP
-8.  Shell scripting
-9.  Hadoop
-10.  C#/.NET
-11.  Hive
+Currently, This is a work in progress.  I will try to limit my entries
+to 5 or 6 samples in each language. As time permits I will also add:
+
+1.  Cassandra
+2.  ElasticSearch
+3.  Ruby
+4.  Javascript/AJAX
+5.  Hadoop
+6.  C#/.NET
+7.  Hive
+8.  Java/Android
