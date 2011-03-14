@@ -1,7 +1,7 @@
 #Author: J. Andrew Key
 #Objective: In many cases, it is necessary to open numerous terminals to 
 #different servers.  This script simplifies that task using a color-coded
-#array of terminal windows arranged at different places on the your screen
+#array of terminal windows arranged at different places on your screen
 
 #An array of foreground colors
 fg=( red orange magenta cyan purple green yellow blue )
