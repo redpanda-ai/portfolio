@@ -66,4 +66,3 @@ print "Original List -> " + str(l)
 l.reverse()
 #Display the reversed list
 print "Reversed List -> " + str(l)
-
