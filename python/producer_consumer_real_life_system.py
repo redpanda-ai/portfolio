@@ -10,7 +10,7 @@ import signal, httplib, locale, smtplib
 #	NoSQL search engine (consumers)
 #	3. This is achieved using a thread synchronization mechanism known as
 #	a queue, that allows concurrent reads and writes. 
-#  Please note, I have changed some of the information, so that while the
+#	Please note, I have changed some of the information, so that while the
 #	algorithm is the same, I do not violate any non-disclosure agreements.
 
 #This sets our string encoding to UTF8 (Unicode)
