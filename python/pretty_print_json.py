@@ -82,7 +82,12 @@ print "Example #1"
 pretty_print(0,'',obj,0)
 #JSON document #2
 doc = """
-{ "ok" : true, "name" : "Power, Katie", "version" : { "number" : "0.13.1", "date" : "2010-12-03T19:16:16", "snapshot_build" : false }, "tagline" : "You Know, for Search", "cover" : "DON'T PANIC", "quote" : { "book" : "The Restaurant at the End of the Universe", "chapter" : "Chapter 19", "text1" : "It is known that there are an infinite number of worlds, simply because there is an infinite amount of space for them to be in. However, not every one of them is inhabited. Therefore, there must be a finite number of inhabited worlds. Any finite number divided by infinity is as near to nothing as makes no odds, so the average population of all the planets in the Universe can be said to be zero. From this it follows that the population of the whole Universe is also zero, and that any people you may meet from time to time are merely the products of a deranged imagination." } } 
+{ "ok" : true, "name" : "Power, Katie", "version" : { "number" : 
+"0.13.1", "date" : "2010-12-03T19:16:16", "snapshot_build" : 
+false }, "tagline" : "You Know, for Search", "cover" : 
+"DON'T PANIC", "quote" : { "book" : 
+"The Restaurant at the End of the Universe", "chapter" : "Chapter 19", 
+"text1" : "It is known that there are an infinite number of worlds, simply because there is an infinite amount of space for them to be in. However, not every one of them is inhabited. Therefore, there must be a finite number of inhabited worlds. Any finite number divided by infinity is as near to nothing as makes no odds, so the average population of all the planets in the Universe can be said to be zero. From this it follows that the population of the whole Universe is also zero, and that any people you may meet from time to time are merely the products of a deranged imagination." } } 
 """
 #deserialize our string into a python object
 obj = json.loads(doc)
