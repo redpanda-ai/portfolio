@@ -51,7 +51,7 @@ def pretty_print(indent_count, key, value, add_comma):
 			pretty_print(indent_count+1,'',item,ac)
 			item_count += 1
 		print prefix + ']' + suffix
-	#OBJECT
+	#5. OBJECT
 	elif base_type == base_types["OBJECT"]:
 		print prefix + "{"
 		item_count = 1
