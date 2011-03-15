@@ -308,7 +308,7 @@ def send_report():
 		total += uploaded_queue.get()
 	write_email("Uploaded " + str(total) + " documents", ":)")
 
-#Exit with informative message if there are not exactly 3 parameters
+#Exit with informative message if there are not exactly 12 parameters
 if len(sys.argv) != 13:
 	print "usage: python " + sys.argv[0] + " <dsn> <uid> <pwd> <batch_size>" + \
 	" <bulk_size> <consumers> <producers> <start_id> <end_id>" + \
