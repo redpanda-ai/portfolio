@@ -1,0 +1,81 @@
+OVERVIEW
+This is an event-driven key/value TCP server written in Python 2.6.6 using
+select.epoll.  This server writes SET operations into an append-only transaction
+log.  The server replays this log when it starts to restore the mapping to its
+state before the last shutdown.  This server is crashable; namely, it will not
+lose data after having issued OK to a given SET operation, even if a SIGKILL
+(kill -9) is issued.  It contains a test suite (using nose) that verifies
+the server's basic functionality.
+
+It contains 3 files:
+1.  The server, async_key_value_server.py
+2.  The client, async_key_value_client.py
+3.  The unit tests, async_key_value_nose_tests.py 
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+To start the server 
+	python async_key_value_server.py
+To start a client
+	python async_key_value_client.py
+To run the unit tests
+	nosetests -v
+--------------------------------------------------------------------------------
+PROTOCOL
+All keys and values are UTF-8 strings. Whitespace of any kind within keys or 
+values is unsupported.
+--------------------------------------------------------------------------------
+COMMANDS
+	1. Set Operation:
+		SET <key> <value>
+	2. Get Operation:
+		GET <key>
+	3. Compact Operation:
+		COMPACT
+--------------------------------------------------------------------------------
+EXAMPLE CLIENT RUN (after starting the server)
+jkey@tesla:~/async_key_value_server$ python async_key_value_client.py 
+
+===Enter a command to send to the server===
+C: SET make Ford
+S: OK
+C: SET model Mustang
+S: OK
+C: SET year 2000
+S: OK
+C: GET model
+S: OK
+Mustang
+C: GET year
+S: OK
+2000
+C: SET year 2001
+S: OK
+C: GET year
+S: OK
+2001
+C: COMPACT
+S: OK
+C: GET color
+S: MISSING
+C: SET color red
+S: OK
+C: GET red
+S: MISSING
+C: 
+jkey@tesla:~/async_key_value_server$ 
+--------------------------------------------------------------------------------
+EXAMPLE UNIT TEST RUN
+jkey@tesla:~/portfolio/python/async_key_value_server$ nosetests -v
+async_key_value_nose_tests.TestCommands.test_get_correct ... ok
+async_key_value_nose_tests.TestCommands.test_get_missing ... ok
+async_key_value_nose_tests.TestCommands.test_no_command_issued ... ok
+async_key_value_nose_tests.TestCommands.test_set_correct ... ok
+async_key_value_nose_tests.TestCommands.test_set_one_param ... ok
+async_key_value_nose_tests.TestCommands.test_set_zero_params ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.109s
+
+OK
+jkey@tesla:~/async_key_value_server$
+
