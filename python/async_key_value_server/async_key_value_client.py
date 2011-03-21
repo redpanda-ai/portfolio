@@ -1,5 +1,9 @@
 import socket, re
 
+#Author: J. Andrew Key
+#Objective: Write a client that allows a user to interact with the server
+
+#Examine the full response, strip the header and return what remains
 def process_response(full_response):
 	response = ""
 	m = re.search('.+\r\n\r\n((.*\r\n)*)',full_response)
@@ -16,6 +20,7 @@ buf = 1024
 def_msg = "===Enter a command to send to the server==="
 print("\n" + def_msg)
 
+#Process commands from the user and display the results from the server 
 while(True):
 	data = raw_input('C: ')
 	if not data:
@@ -31,5 +36,4 @@ while(True):
 			response += response + data
 			data = s.recv(1024)
 		s.close()
-		#print("S: " + response)
 		print("S: " + process_response(response))
