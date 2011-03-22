@@ -63,8 +63,8 @@ public class URLToAssociativeArray
 						newArray.add(temp);
 						data.put(keyval[0],newArray);
 					//and add the new value to the ArrayList
-					((ArrayList) data.get(keyval[0])).add(keyval[1]);
 					}
+					((ArrayList) data.get(keyval[0])).add(keyval[1]);
 				}
 			} catch (Exception e) {
 				System.out.println("foo");
@@ -75,7 +75,7 @@ public class URLToAssociativeArray
 	//Main Program
 	public static void main(String [] args) {
 		URLToAssociativeArray y = 
-			new URLToAssociativeArray("a=1&b=2&a=hello&apple=9&apple=digital");
+			new URLToAssociativeArray("a=1&b=2&a=3&a=hello&apple=9&apple=digital");
 		System.out.println(y);
 	}
 }
