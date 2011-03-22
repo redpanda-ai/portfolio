@@ -1,0 +1,16 @@
+  1 2 3 4 5 
+1 X 
+2 X X 
+3 X X X 
+4 X X X X 
+5 X X X X X 
+
+Tree(4,2) -> Y
+Tree(5,3) -> Z
+  1 2 3 4 5 
+1 X 
+2 X X 
+3 X X X 
+4 X Y X X 
+5 X X Z X X 
+

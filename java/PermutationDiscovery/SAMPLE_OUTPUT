@@ -1,0 +1,11 @@
+PermutationDiscovery
+Permutation? -> deductions AND discounted -> TRUE
+Permutation? -> angered AND enraged -> TRUE
+Permutation? -> aabbccdd AND abbbccdd -> FALSE
+Permutation? -> aabbccdd AND aabbccdda -> FALSE
+Permutation? -> abcdef AND ghijklmnop -> FALSE
+Permutation? -> tobeornottobethatisthequestionwhethertisnoblerinthemindtosuffertheslingsandarrowsofoutrageousfortune AND inoneofthebardsbestthoughtoftragediesourinsistentherohamletqueriesontwofrontsabouthowlifeturnsrotten -> TRUE
+PROOF
+{w=2, u=5, t=14, s=8, r=8, q=1, o=12, n=8, m=1, l=2, i=6, h=6, g=2, f=4, e=12, d=2, b=3, a=4}
+{w=2, u=5, t=14, s=8, r=8, q=1, o=12, n=8, m=1, l=2, i=6, h=6, g=2, f=4, e=12, d=2, b=3, a=4}
+
