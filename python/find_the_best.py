@@ -42,24 +42,23 @@ movies = [
 	{"mmid" : 20, "name" : "Sleepless in Seattle", "ranking" : 1.0}
 ]	
 
-best_movies = []
+h = [] 
 least = 0
 for i in range(len(movies)):
 	#just push the first X movies onto the heap
+	rank = movies[i]["ranking"]
 	if i < number_of_results:
-		heapq.heappush(best_movies,(i,movies[i]["ranking"]))
-		if i == len(movies) - 1:
-			least = heapq.heappop(best_movies)
-			heapq.heappush(best_movies,least)
-	#compare each new movie to the ranking at the top of the heap
-	elif movies[i]["ranking"] > least:
-		#replace the old heap root 
-		heapq.heapreplace(best_movies,(i,movies[i]["ranking"]))
+		heapq.heappush(h,(i,rank))
+	if i == len(movies) - 1:
+		least = heapq.heappop(h)
+	if i >= number_of_results:
+		if rank > least:
+			heapq.heappush(h,(i,rank))
 
 #Display the results, with a simple loop
-best_x_movies = heapq.nlargest(number_of_results,h,key=itemgetter(1))
+l = heapq.nlargest(number_of_results,h,key=itemgetter(1))
 y = len(l)
 for j in range(y):
-	r = movies[best_x_movies[j][0]]
+	r = movies[l[j][0]]
 	print str(j+1) + ". " + r["name"] + " (" + str(r["ranking"]) + ")"
 
