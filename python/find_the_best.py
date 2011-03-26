@@ -4,10 +4,10 @@ from operator import itemgetter
 #Author: J. Andrew Key
 #Objective: Provide a very quick, method for finding the "best" X items
 #	in an unordered list.  This solution benefits from ot having to sort all 
-#	items in the list.  Instead, it uses a min-heap to efficiently keep
+#	items in the list.  Instead, it uses a min-heap (heapq) to efficiently store 
 #	the best X items, with the least of these best items at the top of 
-#	the heap.  Should a new item be better than the least, the new item replaces
-#	the least on the heap.
+#	the heap.  Should a new item be have a higher ranking than the least
+#	the new item replaces the least on the heap and a new least is determined.
 
 #Exit with informative message if there is not exactly 1 parameter
 if len(sys.argv) != 2:
@@ -66,19 +66,27 @@ def find_least(best_movie_heap):
 
 best_movie_heap = []
 least = 0
+#Handle the case where more results are requested than movies provided
+if number_of_results > len(movies):
+	number_of_results = len(movies)
 for i in range(len(movies)):
 	rank = movies[i]["ranking"]
-	#you have to update the heap for the first "number_of_results" movies
+	#for the first "number_of_results" movies, just append to a list
 	if i < number_of_results:
-		heapq.heappush(best_movie_heap,(rank,i))
-		#on "number_of_results" - 1 you need to establish a value for "least"
+		best_movie_heap.append((rank,i))
+		#heapq.heappush(best_movie_heap,(rank,i))
+		#on "number_of_results - 1" you need to establish a value for "least"
 		#at each iteration of the loop that follows, you compare the current 
 		#movie's "rank" to "least" and determine if you need to update the heap
 		if i == number_of_results - 1:
+			#at this point, convert your list to a heap (heapify)
+			heapq.heapify(best_movie_heap)
 			least = find_least(best_movie_heap)
 	if (i >= number_of_results) and (rank >= least):
 		heapq.heapreplace(best_movie_heap,(rank,i))
 		least = find_least(best_movie_heap)
-#Python's heapq has a funtion called "nlargest", but I chose not to use it 
+
+#Python's heapq has a funtion called "nlargest", but I chose not to use it
+#in favor of an opportunity to demonstrate how this works.
 show_heap(best_movie_heap)
 
