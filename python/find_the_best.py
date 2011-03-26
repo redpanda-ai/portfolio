@@ -51,6 +51,7 @@ for i in range(len(movies)):
 		heapq.heappush(h,(i,rank))
 	if i == len(movies) - 1:
 		least = heapq.heappop(h)
+		heapq.heappush(h,(i,rank))
 	if i >= number_of_results:
 		if rank > least:
 			heapq.heappush(h,(i,rank))
