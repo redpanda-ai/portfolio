@@ -1,11 +1,10 @@
-import sys
+import sys, heapq
 from operator import itemgetter
 
 #Author: J. Andrew Key
-#Objective: Provide a very quick, O(n), method for finding the "best" X items
-#	in an unordered list.  This solution scales linearly, and benefits from
-#	not having to sort all items in the list.  Instead, it compares each
-#	item to the current worst item in the sorted list of best X items. 
+#Objective: Provide a very quick, method for finding the "best" X items
+#	in an unordered list.  This solution benefits from ot having to sort all 
+#	items in the list.  Instead, it uses a min-heap.
 
 #Exit with informative message if there is not exactly 1 parameter
 if len(sys.argv) != 2:
@@ -41,31 +40,23 @@ movies = [
 ]	
 
 best_movies = []
+least = 0
 for i in range(len(movies)):
-	#if the length of the current list of "best_movies" is less than our 
-	#the specified "number_of_results"
-	if len(best_movies) < number_of_results:
-		#just add the movie
-		best_movies.append((i,movies[i]["ranking"]))
-		#if we reach the last movie in the list
+	#just push the first X movies onto the heap
+	if i < number_of_results:
+		heapq.heappush(best_movies,(i,movies[i]["ranking"]))
 		if i == len(movies) - 1:
-			#sort the best_movies movies
-			best_movies = sorted(best_movies, key=itemgetter(1))
-		#if we reach the correct "number_of_results"  
-		elif len(best_movies) == number_of_results:
-			#sort the best_movies movie 
-			best_movies = sorted(best_movies, key=itemgetter(1))
-#At this point, we have a sorted list of "best_movies".  We now iterate through 
-#the remaining list of movies looking for any movie that has a better ranking 
-#than our lowest ranked "best_movie".  Whenever one is found, replace the 
-#old lowest ranked "best_movie" and re-sort the "best_movies"
-	elif movies[i]["ranking"] > best_movies[0][1] :
-		best_movies[0] = (i,movies[i]["ranking"])
-		best_movies = sorted(best_movies, key=itemgetter(1))
-
+			least = heapq.heappop(best_movies)
+			heapq.heappush(best_movies,least)
+	#compare each new movie to the ranking at the top of the heap
+	elif movies[i]["ranking"] > least:
+		#replace the old heap root 
+		heapq.heapreplace(best_movies,(i,movies[i]["ranking"]))
 
 #Display the results, with a simple loop
-x = len(best_movies)
-for j in range(x):
-	m = movies[best_movies[x-j-1][0]]
-	print str(j+1) + ". " + m["name"] + " (" + str(m["ranking"]) + ")"
+best_x_movies = heapq.nlargest(number_of_results,h,key=itemgetter(1))
+y = len(l)
+for j in range(y):
+	r = movies[best_x_movies[j][0]]
+	print str(j+1) + ". " + r["name"] + " (" + str(r["ranking"]) + ")"
+
