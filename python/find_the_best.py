@@ -42,13 +42,13 @@ movies = [
 	{"mmid" : 20, "name" : "Sleepless in Seattle", "ranking" : 1.0}
 ]	
 
-#This function displays the heap from biggest to least
+#This function displays the heap from most to least
 def show_heap(best_movie_heap):
-	#use a list comprehension to pop off the best results (least to biggest)
+	#use a list comprehension to pop off the best results (least to most)
 	#from our min-heap
 	results = \
 		[heapq.heappop(best_movie_heap)[1] for i in range(number_of_results)]
-	#the print order needs to be (biggest to least) so loop through the results
+	#the print order needs to be (most to least) so loop through the results
 	#backwards
 	r_len = len(results)
 	for i in range(r_len):
