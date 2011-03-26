@@ -42,16 +42,25 @@ movies = [
 	{"mmid" : 20, "name" : "Sleepless in Seattle", "ranking" : 1.0}
 ]	
 
-h = [] 
+best_movie_heap = []
+least_tuple = (0, 0.0) 
 least = 0
 for i in range(len(movies)):
 	rank = movies[i]["ranking"]
-	heapq.heappush(h,(i,rank))
-
+#you have to update the heap for the first "number_of_results" movies
+	if i < number_of_results:
+		heapq.heappush(best_movie_heap,(i,rank))
+#on "number_of_results" + 1 you need to establish a real value for "least"
+#at each iteration of the loop that follows, you compare the current movie's
+#"rank" to "least" and determine if you need to update the heap
+	if (i >= number_of_results) and (rank > least):
+		heapq.heappush(best_movie_heap,(i,rank))
+		least_tuple = heapq.heappop(best_movie_heap)
+		least = least_tuple[1]
+		heapq.heappush(best_movie_heap,least_tuple)
 #Display the results, with a simple loop
-l = heapq.nlargest(number_of_results,h,key=itemgetter(1))
-y = len(l)
-for j in range(y):
-	r = movies[l[j][0]]
-	print str(j+1) + ". " + r["name"] + " (" + str(r["ranking"]) + ")"
+best_x = heapq.nlargest(number_of_results,best_movie_heap,key=itemgetter(1))
+for j in range(len(best_x)):
+	movie = movies[best_x[j][0]]
+	print str(j+1) + ". " + movie["name"] + " (" + str(movie["ranking"]) + ")"
  
