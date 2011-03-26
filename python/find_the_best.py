@@ -4,7 +4,10 @@ from operator import itemgetter
 #Author: J. Andrew Key
 #Objective: Provide a very quick, method for finding the "best" X items
 #	in an unordered list.  This solution benefits from ot having to sort all 
-#	items in the list.  Instead, it uses a min-heap.
+#	items in the list.  Instead, it uses a min-heap to efficiently keep
+#	the best X items, with the worst of the best item (least) at the top of 
+#	the heap.  Should a new item be better than the least, replace it on the
+#	heap.
 
 #Exit with informative message if there is not exactly 1 parameter
 if len(sys.argv) != 2:
