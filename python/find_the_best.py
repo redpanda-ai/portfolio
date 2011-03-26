@@ -42,25 +42,43 @@ movies = [
 	{"mmid" : 20, "name" : "Sleepless in Seattle", "ranking" : 1.0}
 ]	
 
+#This function displays the heap from biggest to least
+def show_heap(best_movie_heap):
+	#use a list comprehension to pop off the best results (least to biggest)
+	#from our min-heap
+	results = \
+		[heapq.heappop(best_movie_heap)[1] for i in range(number_of_results)]
+	#the print order needs to be (biggest to least) so loop through the results
+	#backwards
+	r_len = len(results)
+	for i in range(r_len):
+		movie = movies[results[r_len -1 - i]]
+		print str(i+1) + ". " + movie["name"] + " (" + str(movie["ranking"]) + ")"
+		i+=1
+
+#This function returns the "least" ranking in the "best_movie_heap"
+def find_least(best_movie_heap):
+	least_tuple = best_movie_heap.pop(0)
+	least = least_tuple[0]
+	heapq.heappush(best_movie_heap,least_tuple)
+	return least
+
+
 best_movie_heap = []
-least_tuple = (0, 0.0) 
 least = 0
 for i in range(len(movies)):
 	rank = movies[i]["ranking"]
-#you have to update the heap for the first "number_of_results" movies
+	#you have to update the heap for the first "number_of_results" movies
 	if i < number_of_results:
-		heapq.heappush(best_movie_heap,(i,rank))
-#on "number_of_results" + 1 you need to establish a real value for "least"
-#at each iteration of the loop that follows, you compare the current movie's
-#"rank" to "least" and determine if you need to update the heap
-	if (i >= number_of_results) and (rank > least):
-		heapq.heappush(best_movie_heap,(i,rank))
-		least_tuple = heapq.heappop(best_movie_heap)
-		least = least_tuple[1]
-		heapq.heappush(best_movie_heap,least_tuple)
-#Display the results, with a simple loop
-best_x = heapq.nlargest(number_of_results,best_movie_heap,key=itemgetter(1))
-for j in range(len(best_x)):
-	movie = movies[best_x[j][0]]
-	print str(j+1) + ". " + movie["name"] + " (" + str(movie["ranking"]) + ")"
- 
+		heapq.heappush(best_movie_heap,(rank,i))
+		#on "number_of_results" - 1 you need to establish a value for "least"
+		#at each iteration of the loop that follows, you compare the current 
+		#movie's "rank" to "least" and determine if you need to update the heap
+		if i == number_of_results - 1:
+			least = find_least(best_movie_heap)
+	if (i >= number_of_results) and (rank >= least):
+		heapq.heapreplace(best_movie_heap,(rank,i))
+		least = find_least(best_movie_heap)
+#Python's heapq has a funtion called "nlargest", but I chose not to use it 
+show_heap(best_movie_heap)
+
