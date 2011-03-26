@@ -45,16 +45,8 @@ movies = [
 h = [] 
 least = 0
 for i in range(len(movies)):
-	#just push the first X movies onto the heap
 	rank = movies[i]["ranking"]
-	if i < number_of_results:
-		heapq.heappush(h,(i,rank))
-	if i == len(movies) - 1:
-		least = heapq.heappop(h)
-		heapq.heappush(h,(i,rank))
-	if i >= number_of_results:
-		if rank > least:
-			heapq.heappush(h,(i,rank))
+	heapq.heappush(h,(i,rank))
 
 #Display the results, with a simple loop
 l = heapq.nlargest(number_of_results,h,key=itemgetter(1))
