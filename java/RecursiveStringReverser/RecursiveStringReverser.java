@@ -1,7 +1,7 @@
 /*	Author: J. Andrew Key
 	Objective: Use recursion to write a method that reverses a given string.
 	Time Complexity: O(n), where n is the length of the "inputString", since
-	n calls the the "reverse" method must be made for a given string.
+	n calls to the "reverse" method must be made for a given string.
 */
 
 public class RecursiveStringReverser
