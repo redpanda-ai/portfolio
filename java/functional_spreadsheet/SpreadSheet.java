@@ -27,15 +27,14 @@ import java.util.regex.Matcher;
  *  | "10 2 3 + / 4 5 + *" | "10/(2+3)*(4+5)" |         18.0 |
  *  +----------------------+------------------+--------------+
  *
- * <p> Your task is to implement a functional SpreadSheet. The main
- * functionality is:
+ * <p> This is a functional SpreadSheet. The main functionality is:
  * <li> 1. constructor: construct the spreadsheet from the provided expressions.
  * <li> 2. dump(): solve the spreadsheet and return the result. If
  * a cycle of references exists, detect it and throw a
  * CircularReferenceException.
  * 
  * <p>
- * Comments: You can assume that there are no more than 26 columns (A-Z) in the spreadsheet.
+ * Comments: Assume that there are no more than 26 columns (A-Z) in the spreadsheet.
 */
 public class SpreadSheet {
 	/**
