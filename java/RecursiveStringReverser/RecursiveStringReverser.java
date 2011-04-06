@@ -11,9 +11,9 @@ public class RecursiveStringReverser
 		if (inputString.length() == 1) {
 			return inputString;
 		} 
-		int l = inputString.length();
-		return inputString.substring(l-1,l) 
-			+ RecursiveStringReverser.reverse(inputString.substring(0,l-1));
+		int len = inputString.length();
+		return inputString.substring(len-1,len) 
+			+ RecursiveStringReverser.reverse(inputString.substring(0,len-1));
 	}
 
 	//Main Program
