@@ -3,7 +3,7 @@ from operator import itemgetter
 
 #Author: J. Andrew Key
 #Objective: Provide a very quick, method for finding the "best" X items
-#	in an unordered list.  This solution benefits from ot having to sort all 
+#	in an unordered list.  This solution benefits from not having to sort all 
 #	items in the list.  Instead, it uses a min-heap (heapq) to efficiently store 
 #	the best X items, with the least of these best items at the top of 
 #	the heap.  Should a new item be have a higher ranking than the least
