@@ -6,7 +6,7 @@ from operator import itemgetter
 #	in an unordered list.  This solution benefits from not having to sort all 
 #	items in the list.  Instead, it uses a min-heap (heapq) to efficiently store 
 #	the best X items, with the least of these best items at the top of 
-#	the heap.  Should a new item be have a higher ranking than the least
+#	the heap.  Should a new item have a better ranking than the least
 #	the new item replaces the least on the heap and a new least is determined.
 
 #Exit with informative message if there is not exactly 1 parameter
