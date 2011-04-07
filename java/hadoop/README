@@ -1,0 +1,4 @@
+Hadoop is an opensource framework for MR (Map / Reduce). 
+I am in the process of uploading examples in Java, HadoopStreaming for Python
+and Erlang, Hive, and Pig.  At the moment, I have the class files for a classic
+MapReduce problem, counting the words in a series of documents.
