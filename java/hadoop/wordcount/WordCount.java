@@ -10,35 +10,36 @@ import org.apache.hadoop.mapred.*;
 import org.apache.hadoop.util.*;
 
 /* This class demonstrates a simple MR (MapReduce) to count the number of words
-	The input and output type of an MR job
-	(input) <k1, v1> -> map -> <k2, v2> -> combine -> <k2,v2> -> 
-	reduce -> <k3, v3> (ouput)
+	in a directory of files on a distributed file system (HDFS).
+	The basic sequence of inputs and outputs for an MR job
+	(input) <k1, v1> -> MAP -> <k2, v2> -> COMBINE -> <k2,v2> -> 
+	REDUCE -> <k3, v3> (ouput)
 */ 
 public class WordCount {
 	public static class Map extends MapReduceBase
 	implements Mapper<LongWritable, Text, Text, IntWritable> {
 		private final static IntWritable one = new IntWritable(1);
 		private Text word = new Text();
-// (input) <k1, v1> -> map -> <k2, v2>
-	public void map(LongWritable key, Text value,
-	OutputCollector<Text, IntWritable> output, Reporter reporter)
-	throws IOException {
-		//Cast the Text to its String form
-		String line = value.toString();
-		//Break the String along whitespace into tokens
-		StringTokenizer tokenizer = new StringTokenizer(line);
-		while (tokenizer.hasMoreTokens()) {
-			//set the writable Text word as the key k2
-			word.set(tokenizer.nextToken());
-			//add "one" to the value v2
-			output.collect(word, one);
+		// (input) <k1, v1> -> MAP -> <k2, v2>
+		public void map(LongWritable key, Text value,
+		OutputCollector<Text, IntWritable> output, Reporter reporter)
+		throws IOException {
+			//Cast the Text to its String form
+			String line = value.toString();
+			//Break the String along whitespace into tokens
+			StringTokenizer tokenizer = new StringTokenizer(line);
+			while (tokenizer.hasMoreTokens()) {
+				//set the writable Text word as the key k2
+				word.set(tokenizer.nextToken());
+				//add "one" to the value v2
+				output.collect(word, one);
+			}
 		}
 	}
-}
 
 	public static class Reduce extends MapReduceBase implements 
 	Reducer<Text, IntWritable, Text, IntWritable> {
-// <k2, v2> -> reduce -> <k3, v3> (ouput)
+		// <k2, v2> -> REDUCE -> <k3, v3> (ouput)
 		public void reduce(Text key, Iterator<IntWritable> values, 
 		OutputCollector<Text, IntWritable> output, Reporter reporter)
 		throws IOException {
