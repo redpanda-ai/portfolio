@@ -9,8 +9,8 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.*;
 import org.apache.hadoop.util.*;
 
-/* This class demonstrates a simple map reduce to count the number of words
-	The input and output type of an M/R job
+/* This class demonstrates a simple MR (MapReduce) to count the number of words
+	The input and output type of an MR job
 	(input) <k1, v1> -> map -> <k2, v2> -> combine -> <k2,v2> -> 
 	reduce -> <k3, v3> (ouput)
 */ 
