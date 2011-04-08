@@ -1,8 +1,6 @@
 This is a server that responds to all requests by echoing the result.
-It's sole purpose is to demonstrate Jexxus as a clean and concise way to
-write client and server code. 
 
-Future plans are to re-write my python asynchronous key/value server in Java using Jexxus.  It may also write a Poker server and client program and ask 5 clients to play a million rounds of Poker with different strategies to see which one wins in the long run.
+It's sole purpose is to demonstrate Jexxus as a clean and concise way to write client and server code.  Future plans are to re-write my python asynchronous key/value server in Java using Jexxus.  It may also write a Poker server and client program and ask 5 clients to play a million rounds of Poker with different strategies to see which one wins in the long run.
 
 What is Jexxus?
 It is an open-source Java network library that you can find here:
