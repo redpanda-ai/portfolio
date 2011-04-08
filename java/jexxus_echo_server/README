@@ -1,0 +1,6 @@
+This is just a basic server that responds to all requests by echoing the result.
+I am considering using it for an asynchronous key/value server.
+
+It uses Jexxus, an open-source Java network library that you can find here:
+http://code.google.com/p/jexxus/
+
