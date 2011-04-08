@@ -21,10 +21,10 @@ public class JexxusClient {
 		String temp = "";
 		try {
 			temp = dataIn.readLine();
+			conn.send(temp.getBytes(), Delivery.RELIABLE);
 		} catch (IOException e) {
 			System.out.println("Error getting keyboard input");
 		}
-		conn.send(temp.getBytes(), Delivery.RELIABLE);
 		System.exit(0);
 	}
 }
