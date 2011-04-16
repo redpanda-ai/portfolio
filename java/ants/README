@@ -1,4 +1,6 @@
-This program is an "Ant" that solves the Addepar Challenge.  The goal is to collect enough food for the ant colony in as few turns as possible.  My implementation uses Dijkstra's algorithm to determine the path to nearest mysterious tile in search of more food locations.
+AndyAnt.java is an "Ant" that solves the Addepar Challenge.  The goal is to collect enough food for the ant colony in as few turns as possible.  My "Ant" implementation uses Dijkstra's algorithm to determine the path to nearest mysterious tile in search of more food locations.
+
+Want to see my AndyAnts in action?  Go to http://www.youtube.com/watch?v=fDtFehiwtcA
 
 Interested in writing your own "Ant"?  Learn more about the rules and download the simulator from the Addepar Challenge Website http://addepar.com/challenge.php
 
