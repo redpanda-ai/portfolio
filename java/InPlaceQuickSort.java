@@ -1,3 +1,12 @@
+/*	Author: J. Andrew Key
+	Objective: Produce and in-memory quicksort that works for any "Comparable"
+	class.  This allows us to quicksort any heterogeneous ArrayList of
+	Comparable Objects.
+	Time Complexity: O(n log (n))
+	Features: A random pivot, to prevent worst case scenario of an already
+	sorted list.
+*/
+
 import java.util.ArrayList;
 import java.util.Random;
 
