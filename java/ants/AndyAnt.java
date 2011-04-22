@@ -29,7 +29,7 @@ public class AndyAnt implements Ant{
 
 	private final int BYTE_SIZE = 8;
 	private final int BYTES_PER_INT = 4;
-	private final int MAP_SIDE = 35;
+	private final int MAP_SIDE = 36;
 	private final int MAP_DIMENSIONS = MAP_SIDE*MAP_SIDE;
 	private final int START_LOCATION = MAP_DIMENSIONS/2;
 	
