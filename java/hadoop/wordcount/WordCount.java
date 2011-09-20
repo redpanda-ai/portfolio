@@ -34,6 +34,7 @@ public class WordCount {
 				//add "one" to the value v2
 				//this may happend several times
 				output.collect(word, one);
+				//(k2,v2) = (word,1)
 			}
 		}
 	}
@@ -41,9 +42,20 @@ public class WordCount {
 	//the COMBINE step is taken care of by the framework, basically it 
 	//collects the sorted output <k2,v2> from each mapper and combines 
 	//them into a unified <k3,v3> pairs where v3 is a collection of v2 values.
+	// (k2,v2) COMBINE -> {k3,v3}
+	// in our case:
+	// ("Hadoop", 1)  x 1 -> ("Hadoop",  (1)     )
+	// ("Hello", 1)   x 2 -> ("Hello",   (1,1)   )
+	// ("Goodbye", 1) x 2 -> ("Goodbye", (1,1)   )
+	// ("World", 1)   x 3 -> ("Goodbye", (1,1,1) )
 	public static class Reduce extends MapReduceBase implements 
 	Reducer<Text, IntWritable, Text, IntWritable> {
 		// <k3, v3> -> REDUCE -> <k4, v4> (ouput)
+		// in our case:
+		// ("Hadoop", (1))    -> ("Hadoop",  1)
+		// ("Hello",  (1,1)   -> ("Hello",   2)
+		// ("Goodbye", (1,1)) -> ("Goodbye", 2)
+		// ("World", (1,1,1)) -> ("World",   3)
 		public void reduce(Text key, Iterator<IntWritable> values, 
 		OutputCollector<Text, IntWritable> output, Reporter reporter)
 		throws IOException {
